@@ -1,0 +1,94 @@
+.movie-details {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #222d3b;
+  color: #f0f4ef;
+  align-items: stretch;
+}
+
+.movie-poster img {
+  width: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie-info h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.tagline {
+  font-style: italic;
+  color: #dd6e42 !important;
+  margin: 0;
+}
+
+.overview {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #bcbfbc;
+}
+
+.movie-info p {
+  margin: 0;
+  color: #cfd6dd;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.genres span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #2d3b4f;
+  font-size: 12px;
+  color: #fff;
+}
+
+.tmdb-rating {
+  margin-top: 8px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+}
+
+.tmdb-rating {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #222d3b !important;
+}
+
+.rating-low {
+  background: #dd6e42;
+}
+
+.rating-medium {
+  background: #b4a98a;
+}
+
+.rating-high {
+  background: #598d92;
+}
+
+.movie-actions-slot {
+  margin-top: auto;
+  padding-top: 16px;
+}
