@@ -1,0 +1,68 @@
+.movie-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.movie-card img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 0 3px #dd6e42;
+}
+
+.movie-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: #f0f4ef;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.movie-card:hover .movie-title {
+  opacity: 1;
+}
+
+.poster-skeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #2c3a4a, #34495e, #2c3a4a);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
