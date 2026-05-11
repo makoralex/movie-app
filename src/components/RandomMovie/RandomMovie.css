@@ -1,0 +1,145 @@
+.random-movie {
+  display: flex;
+  gap: 24px;
+  min-height: 440px;
+  padding: 24px;
+  margin: 20px auto;
+  background: #222d3b;
+  border-radius: 16px;
+  color: #f0f4ef;
+}
+
+.random-movie-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100%;
+}
+
+.random-movie img {
+  width: 260px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.random-movie-info h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.random-movie-tagline {
+  font-style: italic;
+  color: #dd6e42 !important;
+  margin-bottom: 6px;
+}
+
+.random-movie p {
+  margin: 6px 0;
+  line-height: 1.4;
+  color: #bcbfbc;
+  font-size: 15px;
+}
+
+.random-movie-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.random-movie-rating {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #222d3b !important;
+}
+
+.rating-low {
+  background: #dd6e42;
+}
+
+.rating-medium {
+  background: #b4a98a;
+}
+
+.rating-high {
+  background: #598d92;
+}
+
+.random-movie-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.random-movie-btn a,
+.random-movie-btn button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.random-movie-btn a {
+  background: #344966;
+  color: white;
+}
+
+.random-movie-btn a:hover {
+  background: #2e425c;
+}
+
+.random-movie-btn button {
+  margin-left: auto;
+  background: #dd6e42;
+  color: white;
+}
+
+.random-movie-btn button:hover {
+  background: #c75d33;
+}
+
+.poster-skeleton {
+  width: 260px;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #2c3a4a, #34495e, #2c3a4a);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .random-movie {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .random-movie img {
+    width: 220px;
+    height: auto;
+  }
+}
