@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Коростина Мария. Данный проект является курсовой работой на курсе "Т-Академия Фронтенда"
 
-Currently, two official plugins are available:
+Приложение для поиска фильмов с возможностью оценить фильм, добавить в избранное и в список "смотреть позже". В проекте используется The Movie Database (TMDB) API и Firebase для авторизации и хранения пользовательских данных. Аудитория приложения - любители фильмов, которые хотят узнать больше о них.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Основной функционал
 
-## React Compiler
+- Просмотр фильмов: популярные, топ, выходящие сейчас
+- Поиск фильмов по названию
+- Фильтрация по жанру, десятилетию, рейтингу
+- Страница фильма: описание, рейтинг, продолжительность и прочее
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Пользовательский функционал
 
-## Expanding the ESLint configuration
+- Регистрация / вход по email и паролю
+- Лайк = добавление фильмов в избранное
+- Рейтинг = оценка фильма от 1 до 10
+- Watchlist = список фильмов для будущего просмотра
+- Профиль пользователя: статистика и все списки фильмов (лайки, оцененные, смотреть позже)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Инструменты и технологии
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- React Router
+- Firebase Auth: авторизация пользователей
+- Firestore: хранение пользовательских данных
+- TMDB API: получение данных о фильмах
+- Vite
+- ESLint
+- Prettier
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Установка и запуск
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Клонировать репозиторий**
+
+```bash
+git clone <url-репозитория>
+cd movie-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Установить зависимости
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Изменить данные в файле с переменными окружения .env (или использовать мои данные)
+4. Запустить в режиме разработки
+
+```bash
+npm run dev
+```
+
+5. Открыть в браузере: http://localhost:5173
+
+## Тестовый аккаунт
+
+```bash
+test@mail.ru
+000000
+```
+
+## Маршруты
+
+- / главная страница (случайный фильм)
+- /movies все фильмы с фильтрацией
+- /movies/:id страница фильма
+- /auth вход / регистрация
+- /profile профиль пользователя
