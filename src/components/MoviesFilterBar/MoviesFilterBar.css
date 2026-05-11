@@ -1,0 +1,25 @@
+.movies-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.movies-filter button {
+  padding: 8px 14px;
+  font-family: inherit;
+  border-radius: 10px;
+  border: none;
+  background: #1a2431;
+  color: #cfd6dd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.movies-filter button:hover {
+  opacity: 0.8;
+}
+
+.movies-filter button.active {
+  background: #dd6e42;
+  color: white;
+}

@@ -1,0 +1,16 @@
+.movies-advanced-filters {
+  display: flex;
+  gap: 12px;
+  font-family: inherit;
+  margin-bottom: 24px;
+}
+
+.movies-advanced-filters select {
+  padding: 8px 12px;
+  font-family: inherit;
+  border: none;
+  border-radius: 10px;
+  background: #1a2431;
+  color: #cfd6dd;
+  font-size: 14px;
+}
