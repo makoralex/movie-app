@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from '../../firebase/auth';
 import UserMovieService from '../../services/UserMovieService';
 import type { UserData } from '../../types/user';
@@ -12,16 +12,15 @@ const MovieActions = ({ movieId }: Props) => {
   const user = auth.currentUser;
   const [userData, setUserData] = useState<UserData | null>(null);
 
-  const loadUserData = useCallback(async () => {
-    if (!user) return;
-
-    const data = await UserMovieService.getUser(user.uid);
-    setUserData(data);
-  }, [user]);
-
   useEffect(() => {
+    const loadUserData = async () => {
+      if (!user) return;
+      const data = await UserMovieService.getUser(user.uid);
+      setUserData(data);
+    };
+
     loadUserData();
-  }, [loadUserData]);
+  }, [user, movieId]);
 
   const isLiked = userData?.likes?.includes(movieId) ?? false;
   const isWatchLater = userData?.watchLater?.includes(movieId) ?? false;
@@ -36,14 +35,16 @@ const MovieActions = ({ movieId }: Props) => {
       await UserMovieService.likeMovie(user.uid, movieId);
     }
 
-    await loadUserData();
+    const data = await UserMovieService.getUser(user.uid);
+    setUserData(data);
   };
 
   const setRating = async (rating: number) => {
     if (!user) return;
 
     await UserMovieService.rateMovie(user.uid, movieId, rating);
-    await loadUserData();
+    const data = await UserMovieService.getUser(user.uid);
+    setUserData(data);
   };
 
   const toggleWatchLater = async () => {
@@ -55,7 +56,8 @@ const MovieActions = ({ movieId }: Props) => {
       await UserMovieService.addToWatchLater(user.uid, movieId);
     }
 
-    await loadUserData();
+    const data = await UserMovieService.getUser(user.uid);
+    setUserData(data);
   };
 
   if (!user) return null;

@@ -25,7 +25,7 @@ const AuthForm = () => {
       }
 
       navigate('/');
-    } catch (e) {
+    } catch {
       setError('authentication failed');
     } finally {
       setLoading(false);
