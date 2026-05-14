@@ -1,6 +1,7 @@
 import authService from '../../services/AuthService';
 import type { UserData } from '../../types/user';
 import { useNavigate } from 'react-router-dom';
+import ProfileStats from '../ProfileStats/ProfileStats';
 import './ProfileInfo.css';
 
 interface Props {
@@ -12,14 +13,10 @@ const ProfileInfo = ({ userData }: Props) => {
 
   const handleLogout = async () => {
     await authService.logout();
-
     navigate('/');
   };
 
   const username = userData.username ?? userData.email?.split('@')[0] ?? 'user';
-  const likesCount = userData.likes?.length || 0;
-  const ratingsCount = Object.keys(userData.ratings || {}).length;
-  const watchLaterCount = userData.watchLater?.length || 0;
 
   return (
     <div className="profile-info">
@@ -34,7 +31,6 @@ const ProfileInfo = ({ userData }: Props) => {
 
         <div className="profile-user">
           <h1>{username}</h1>
-
           <p>{userData.email}</p>
         </div>
 
@@ -43,22 +39,7 @@ const ProfileInfo = ({ userData }: Props) => {
         </button>
       </div>
 
-      <div className="profile-stats">
-        <div className="stats-card">
-          <span>{likesCount}</span>
-          <p>liked</p>
-        </div>
-
-        <div className="stats-card">
-          <span>{ratingsCount}</span>
-          <p>rated</p>
-        </div>
-
-        <div className="stats-card">
-          <span>{watchLaterCount}</span>
-          <p>watchlist</p>
-        </div>
-      </div>
+      <ProfileStats userData={userData} />
     </div>
   );
 };

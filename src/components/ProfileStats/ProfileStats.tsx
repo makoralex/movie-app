@@ -1,29 +1,28 @@
 import type { UserData } from '../../types/user';
+import { getUserStats } from '../../utils/userStats';
 
 interface Props {
   userData: UserData;
 }
 
 const ProfileStats = ({ userData }: Props) => {
-  const likesCount = userData.likes?.length || 0;
-  const watchLaterCount = userData.watchLater?.length || 0;
-  const ratingsCount = Object.keys(userData.ratings || {}).length;
+  const { likesCount, watchLaterCount, ratingsCount } = getUserStats(userData);
 
   return (
     <div className="profile-stats">
       <div className="stats-card">
         <span>{likesCount}</span>
-        <p>Liked</p>
+        <p>liked</p>
       </div>
 
       <div className="stats-card">
         <span>{ratingsCount}</span>
-        <p>Rated</p>
+        <p>rated</p>
       </div>
 
       <div className="stats-card">
         <span>{watchLaterCount}</span>
-        <p>Watch later</p>
+        <p>watch later</p>
       </div>
     </div>
   );
