@@ -1,0 +1,38 @@
+image: node:18
+
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+
+before_script:
+  - npm ci
+
+lint:
+  stage: lint
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  script:
+    - npm run test:coverage
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+pages:
+  stage: deploy
+  script:
+    - npm run build
+    - rm -rf public
+    - cp -r dist public
+  artifacts:
+    paths:
+      - public
