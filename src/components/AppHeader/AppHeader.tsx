@@ -19,9 +19,11 @@ const AppHeader = () => {
           </li>
           /
           <li>
-            <Link to={user ? '/profile' : '/auth'}>
-              {user ? 'profile' : 'login'}
-            </Link>
+            {user ? (
+              <Link to="/profile">profile</Link>
+            ) : (
+              <Link to="/auth">login</Link>
+            )}
           </li>
         </ul>
       </nav>
