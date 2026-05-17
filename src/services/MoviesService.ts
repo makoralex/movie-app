@@ -1,17 +1,23 @@
 import type { Movie, MoviesResponse } from '../types/movie';
+import logger from './logger';
 
 class MoviesService {
   _apiBase = 'https://api.themoviedb.org/3/';
   _apiKey = 'api_key=af0e04640bfd153286b33b3d36248125';
 
   getResource = async <T>(url: string): Promise<T> => {
-    const res = await fetch(url);
+    try {
+      const res = await fetch(url);
 
-    if (!res.ok) {
-      throw new Error(`Couldn't fetch ${url}, status: ${res.status}`);
+      if (!res.ok) {
+        throw new Error(`Couldn't fetch ${url}, status: ${res.status}`);
+      }
+
+      return await res.json();
+    } catch (error) {
+      logger.error(`movieservice failed for ${url}:`, error);
+      throw error;
     }
-
-    return await res.json();
   };
 
   getPopularMovies = (page = 1): Promise<MoviesResponse> => {
