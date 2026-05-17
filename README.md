@@ -53,7 +53,7 @@ npm install
 npm run dev
 ```
 
-5. Открыть в браузере: http://localhost:5173
+5. Открыть в браузере: http://localhost:5173 (и включить VPN)
 
 ## Тестовый аккаунт
 
