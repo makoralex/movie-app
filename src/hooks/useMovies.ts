@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import MoviesService from '../services/MoviesService';
 import type { Movie } from '../types/movie';
+import logger from '../services/logger';
 
 const moviesService = new MoviesService();
 type MoviesFilter = 'popular' | 'top_rated' | 'upcoming';
@@ -97,7 +98,7 @@ export const useMovies = () => {
         });
         setHasMore(page < res.total_pages);
       } catch (e) {
-        console.error('movies load error:', e);
+        logger.error('movies load error:', e);
       } finally {
         setLoading(false);
       }

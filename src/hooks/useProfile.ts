@@ -4,6 +4,7 @@ import UserMovieService from '../services/UserMovieService';
 import MoviesService from '../services/MoviesService';
 import type { UserData } from '../types/user';
 import type { Movie } from '../types/movie';
+import logger from '../services/logger';
 
 const moviesService = new MoviesService();
 
@@ -53,7 +54,7 @@ export const useProfile = (): UseProfileReturn => {
         setWatchLaterMovies(watchLater);
         setRatedMovies(rated);
       } catch (error) {
-        console.error('failed to load profile', error);
+        logger.error('failed to load profile', error);
       } finally {
         setLoading(false);
       }
