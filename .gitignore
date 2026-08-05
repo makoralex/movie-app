@@ -22,4 +22,5 @@ coverage/
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?.env
+*.sw?
+.env
