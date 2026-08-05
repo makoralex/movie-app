@@ -50,22 +50,11 @@ const MovieActions = ({ movieId }: Props) => {
   const handleRemoveRating = async () => {
     if (!user) return;
 
-    console.log(
-      'Trying to delete movieId:',
-      movieId,
-      'as string:',
-      movieId.toString(),
-    );
-    console.log('Current ratings keys:', Object.keys(userData?.ratings || {}));
-
     setUserData((prev) => {
       if (!prev) return prev;
       const newRatings = { ...prev.ratings };
       const key = movieId.toString();
-      console.log('Deleting key:', key);
       delete newRatings[key];
-      console.log('After deletion, key exists?', key in newRatings);
-      console.log('New ratings:', newRatings);
       return { ...prev, ratings: newRatings };
     });
 
